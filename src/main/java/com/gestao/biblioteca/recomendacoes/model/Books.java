@@ -6,6 +6,7 @@ import java.util.Set;
 import java.util.UUID;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.gestao.biblioteca.recomendacoes.dto.BooksDto;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -44,5 +45,24 @@ public class Books {
 	@JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
 	@OneToMany(mappedBy = "books", fetch = FetchType.LAZY)
 	public Set<Loans> loans = new HashSet<>();
+	
+	
+	
+	 public Books(BooksDto bookDto) {
+			super();
+			this.id = UUID.randomUUID();
+			this.title = bookDto.getTitle();
+			this.author = bookDto.getAuthor();
+			this.isbn = bookDto.getIsbn();
+			this.publishDate = bookDto.getPublishDate();
+			this.category = bookDto.getCategory();
+			
+		}
+
+
+
+	public Books() {
+		super();
+	}
 
 }

@@ -33,10 +33,10 @@ public class UserController {
 	@GetMapping("/allUsers")
 	public ResponseEntity<List<User>> getALLBooks() {
 
-		return ResponseEntity.status(HttpStatus.CREATED).body(userService.getALLBooks());
+		return ResponseEntity.status(HttpStatus.CREATED).body(userService.getAllUsers());
 	}
 
-	@GetMapping("/User/{id}")
+	@GetMapping("/UserById/{id}")
 	public ResponseEntity<User> getUserById(@PathVariable UUID id) {
 		Optional<User> user = userService.getUserByID(id);
 		return ResponseEntity.ok(user.get());
@@ -63,7 +63,7 @@ public class UserController {
 		
 	}
 
-	@DeleteMapping("/{id}")
+	@DeleteMapping("/deleteUser/{id}")
 	public ResponseEntity<String> deleteUser(@PathVariable UUID id) {
 		userService.deleteUserById(id);
 		return ResponseEntity.status(HttpStatus.OK).body("User delete sucessfull");

@@ -6,6 +6,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.gestao.biblioteca.recomendacoes.model.Books;
 
-public interface LibraryRepository extends JpaRepository<Books, UUID> {
+public interface BooksRepository extends JpaRepository<Books, UUID> {
 
 }
