@@ -14,4 +14,9 @@ public class GlobalExceptionHandler {
 	public ResponseEntity<String> handleEntityNotFoundException(EntityNotFoundException ex){
 		return new ResponseEntity<>(ex.getMessage(),HttpStatus.NOT_FOUND);
 	}
+	
+	@ExceptionHandler(LibraryManagementException.class)
+    public ResponseEntity<String> handleUserSaveException(LibraryManagementException ex) {
+        return new ResponseEntity<>(ex.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+    }
 }

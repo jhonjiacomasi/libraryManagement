@@ -6,12 +6,10 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.UUID;
 
-import org.w3c.dom.css.Counter;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.gestao.biblioteca.recomendacoes.dto.UserDto;
+import com.gestao.biblioteca.recomendacoes.utils.Util;
 
-import ch.qos.logback.classic.pattern.Util;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -20,6 +18,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.Email;
 import lombok.Data;
 
 @Entity
@@ -37,10 +36,11 @@ public class User implements Serializable{
 	private String name;
 
 	@Column(nullable = false)
+	@Email(message = "Email is invalid")
 	private String email;
 
-	@Column(nullable = false, unique = true)
-	private LocalDateTime registrationdate;
+	@Column(nullable = false)
+	private String registrationdate;
 
 	@Column(nullable = false, unique = true)
 	private String telephone;
@@ -50,9 +50,7 @@ public class User implements Serializable{
 	public Set<Loans> loans = new HashSet<>();
 
 	
-	public User() {
-		
-	}
+	public User() {}
 
 	private Long generateReducedUUID() {
 		UUID uuid = UUID.randomUUID();
@@ -64,7 +62,7 @@ public class User implements Serializable{
 		this.id = generateReducedUUID();
 		this.name = userDto.name();
 		this.email = userDto.email();
-		this.registrationdate = LocalDateTime.now();
+		this.registrationdate = Util.formatDate(LocalDateTime.now());
 		this.telephone = userDto.telephone();
 	}
 

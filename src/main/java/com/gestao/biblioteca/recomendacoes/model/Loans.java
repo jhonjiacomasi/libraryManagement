@@ -1,10 +1,10 @@
 package com.gestao.biblioteca.recomendacoes.model;
 
 import java.time.LocalDateTime;
-import java.util.Optional;
 import java.util.UUID;
 
 import com.gestao.biblioteca.recomendacoes.dto.LoansDto;
+import com.gestao.biblioteca.recomendacoes.utils.Util;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -34,21 +34,21 @@ public class Loans {
 	private Books books;
 
 	@Column(nullable = false)
-	private LocalDateTime loansDate;
+	private String loansDate;
 
 	@Column(nullable = false)
-	private LocalDateTime returnDate;
+	private String returnDate;
 
 	@Column(nullable = false)
 	private Boolean status;
 
-	
-	 public Loans(LoansDto loansDto) {
-			this.id = UUID.randomUUID();
-			this.loansDate = LocalDateTime.now();
-			this.returnDate = LocalDateTime.now().plusWeeks(2);
-			this.status = loansDto.status();
-			
-		}
-	 public Loans() {}
+	public Loans(LoansDto loansDto) {
+		this.id = UUID.randomUUID();
+		this.loansDate = Util.formatDate(LocalDateTime.now());
+		this.returnDate = Util.formatDate(LocalDateTime.now().plusWeeks(2));
+		this.status = loansDto.status();
+
+	}
+
+	public Loans() {}
 }

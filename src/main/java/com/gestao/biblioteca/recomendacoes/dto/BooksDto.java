@@ -2,6 +2,7 @@ package com.gestao.biblioteca.recomendacoes.dto;
 
 
 import java.util.Date;
+
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Past;
@@ -13,3 +14,5 @@ public record BooksDto (@NotBlank(message= "title is Required") String title,
 						@NotNull(message= "publishDate is Required")
 						@Past(message=" The publication date must be earlier than what was entered")
 						Date publishDate) {}
+
+	
