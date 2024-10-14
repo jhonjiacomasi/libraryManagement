@@ -19,7 +19,6 @@ import com.gestao.biblioteca.recomendacoes.dto.BooksDto;
 import com.gestao.biblioteca.recomendacoes.model.Books;
 import com.gestao.biblioteca.recomendacoes.service.BookService;
 
-import jakarta.persistence.EntityNotFoundException;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 
@@ -37,9 +36,9 @@ public class BookController {
 
 	@GetMapping("/allBooks")
 	public ResponseEntity<List<Books>> getALLBooks() {
-
 		return ResponseEntity.status(HttpStatus.CREATED).body(bookService.getALLBooks());
 	}
+
 	@GetMapping("/bookById/{id}")
 	public ResponseEntity<Books> getBooksById(@PathVariable UUID id) {
 		Optional<Books> book = bookService.getBooksById(id);
@@ -47,26 +46,17 @@ public class BookController {
 	}
 
 
-
 	@PutMapping("/updateBook/{uuid}")
-	public ResponseEntity<Books> updateUser(@PathVariable UUID uuid, @RequestBody @Valid BooksDto booksDto){
-		try {
-			Books updateBook = bookService.updateBook(uuid, booksDto);
-			return ResponseEntity.ok(updateBook);
-			
-		} catch (EntityNotFoundException e) {
-			return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
-		}
-		catch (Exception e) {
-			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
-		}
-		
+	public ResponseEntity<Books> updateUser(@PathVariable UUID uuid, @RequestBody @Valid BooksDto booksDto) {
+		Books updateBook = bookService.updateBook(uuid, booksDto);
+		return ResponseEntity.ok(updateBook);
+
 	}
 
 	@DeleteMapping("/deletebook/{id}")
 	public ResponseEntity<String> deleteUser(@PathVariable UUID id) {
 		bookService.deleteBookById(id);
-		return ResponseEntity.status(HttpStatus.OK).body("Book delete sucessfull");
+		return ResponseEntity.status(HttpStatus.OK).body("Book delete sucessfull in the Database: ");
 	}
 
 }

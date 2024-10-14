@@ -9,4 +9,6 @@ import com.gestao.biblioteca.recomendacoes.model.Loans;
 
 @Repository
 public interface LoansRepository  extends JpaRepository<Loans, UUID>{
+
+	boolean existsByBooksIdAndStatusTrue(UUID bookId);
 }

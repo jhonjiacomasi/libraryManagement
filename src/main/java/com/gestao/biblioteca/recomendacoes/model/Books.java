@@ -60,11 +60,30 @@ public class Books implements Serializable{
 			this.category = bookDto.category();
 			
 		}
+	 
 
+
+	 public Books(UUID id, String title, String author, String isbn, Date publishDate, String category,
+				Set<Loans> loans) {
+			super();
+			this.id = id;
+			this.title = title;
+			this.author = author;
+			this.isbn = isbn;
+			this.publishDate = publishDate;
+			this.category = category;
+			this.loans = loans;
+		}
 
 
 	public Books() {
 		super();
 	}
+
+
+
+
+
+	
 
 }

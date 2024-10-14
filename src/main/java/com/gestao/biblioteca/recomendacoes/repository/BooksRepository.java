@@ -12,6 +12,7 @@ public interface BooksRepository extends JpaRepository<Books, UUID> {
 	boolean existsByIsbn(String isbn);
 	
 	List<Books> findByCategory(String category);
+	
 
 
 
