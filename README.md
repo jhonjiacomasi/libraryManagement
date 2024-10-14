@@ -38,7 +38,6 @@ LibraryManagement é uma aplicação de gestão de biblioteca que permita o cada
 - Container docker (Mysql server 5.7.3)
 - Banco de dados opcional: Mysql Workbench , Postgresql
 
-  ```bash
 # clonar repositório
 git clone https://github.com/jhonjiacomasi/libraryManagement
 
