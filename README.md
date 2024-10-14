@@ -69,4 +69,4 @@ npm run Dev
 
 Jhonatan Santana Giacomasi Barros
 
-https://www.linkedin.com/in/wmazoni
+https://www.linkedin.com/in/jhonatan-giacomasi/
