@@ -1,7 +1,10 @@
 package com.gestao.biblioteca.recomendacoes.model;
 
-import java.util.Date;
+import java.time.LocalDateTime;
+import java.util.Optional;
 import java.util.UUID;
+
+import com.gestao.biblioteca.recomendacoes.dto.LoansDto;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -30,16 +33,22 @@ public class Loans {
 	@JoinColumn(name = "books_id")
 	private Books books;
 
-	@Column(nullable = false, unique = true)
-	private String email;
+	@Column(nullable = false)
+	private LocalDateTime loansDate;
 
 	@Column(nullable = false)
-	private Date loansDate;
-
-	@Column(nullable = false)
-	private Date returnDate;
+	private LocalDateTime returnDate;
 
 	@Column(nullable = false)
 	private Boolean status;
 
+	
+	 public Loans(LoansDto loansDto) {
+			this.id = UUID.randomUUID();
+			this.loansDate = LocalDateTime.now();
+			this.returnDate = LocalDateTime.now().plusWeeks(2);
+			this.status = loansDto.status();
+			
+		}
+	 public Loans() {}
 }

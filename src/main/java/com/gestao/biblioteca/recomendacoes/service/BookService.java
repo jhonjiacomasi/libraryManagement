@@ -47,15 +47,12 @@ private final BooksRepository booksRepository;
 	}
 	
 	private Books updateExistingBook(Books existingBooks,BooksDto booksDto) {
-		existingBooks.setTitle(booksDto.getTitle());
-		existingBooks.setAuthor(booksDto.getAuthor());
-		existingBooks.setIsbn(booksDto.getIsbn());
-		existingBooks.setPublishDate(booksDto.getPublishDate());
-		existingBooks.setCategory(booksDto.getCategory());
-		
-		
+		existingBooks.setTitle(booksDto.title());
+		existingBooks.setAuthor(booksDto.author());
+		existingBooks.setIsbn(booksDto.isbn());
+		existingBooks.setPublishDate(booksDto.publishDate());
+		existingBooks.setCategory(booksDto.category());
 		return booksRepository.save(existingBooks);
-		
 	}
 	@Transactional
 	public void deleteBookById(UUID uuid) {

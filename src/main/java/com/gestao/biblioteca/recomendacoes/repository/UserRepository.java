@@ -1,9 +1,12 @@
 package com.gestao.biblioteca.recomendacoes.repository;
 
+import java.util.Optional;
 import java.util.UUID;
+
 import org.springframework.data.jpa.repository.JpaRepository;
+
 import com.gestao.biblioteca.recomendacoes.model.User;
 
-public interface UserRepository extends JpaRepository<User, UUID> {
+public interface UserRepository extends JpaRepository<User, Long> {
 
 }

@@ -1,5 +1,6 @@
 package com.gestao.biblioteca.recomendacoes.model;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
@@ -21,7 +22,8 @@ import lombok.Data;
 @Data
 @Entity
 @Table(name = "TB_BOOKS")
-public class Books {
+public class Books implements Serializable{
+	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -51,11 +53,11 @@ public class Books {
 	 public Books(BooksDto bookDto) {
 			super();
 			this.id = UUID.randomUUID();
-			this.title = bookDto.getTitle();
-			this.author = bookDto.getAuthor();
-			this.isbn = bookDto.getIsbn();
-			this.publishDate = bookDto.getPublishDate();
-			this.category = bookDto.getCategory();
+			this.title = bookDto.title();
+			this.author = bookDto.author();
+			this.isbn = bookDto.isbn();
+			this.publishDate = bookDto.publishDate();
+			this.category = bookDto.category();
 			
 		}
 

@@ -2,10 +2,10 @@ package com.gestao.biblioteca.recomendacoes.controller;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.UUID;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -37,7 +37,7 @@ public class UserController {
 	}
 
 	@GetMapping("/UserById/{id}")
-	public ResponseEntity<User> getUserById(@PathVariable UUID id) {
+	public ResponseEntity<User> getUserById(@PathVariable Long id) {
 		Optional<User> user = userService.getUserByID(id);
 		return ResponseEntity.ok(user.get());
 	}
@@ -49,7 +49,7 @@ public class UserController {
 	}
 	
 	@PutMapping("/updateUser/{uuid}")
-	public ResponseEntity<User> updateUser(@PathVariable UUID uuid, @RequestBody @Valid UserDto userDto){
+	public ResponseEntity<User> updateUser(@PathVariable Long uuid, @RequestBody @Valid UserDto userDto){
 		try {
 			User updateUser = userService.updateUser(uuid, userDto);
 			return ResponseEntity.ok(updateUser);
@@ -64,7 +64,7 @@ public class UserController {
 	}
 
 	@DeleteMapping("/deleteUser/{id}")
-	public ResponseEntity<String> deleteUser(@PathVariable UUID id) {
+	public ResponseEntity<String> deleteUser(@PathVariable Long id) {
 		userService.deleteUserById(id);
 		return ResponseEntity.status(HttpStatus.OK).body("User delete sucessfull");
 	}

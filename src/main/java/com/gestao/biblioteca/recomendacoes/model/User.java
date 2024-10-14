@@ -1,13 +1,17 @@
 package com.gestao.biblioteca.recomendacoes.model;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.UUID;
 
+import org.w3c.dom.css.Counter;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.gestao.biblioteca.recomendacoes.dto.UserDto;
 
+import ch.qos.logback.classic.pattern.Util;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -21,17 +25,18 @@ import lombok.Data;
 @Entity
 @Table(name = "TB_USER")
 @Data
-public class User {
+public class User implements Serializable{
+	private static final long serialVersionUID = 1L;
 	
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private UUID id;
+	private Long id;
 
 	@Column(nullable = false, unique = true)
 	private String name;
 
-	@Column(nullable = false, unique = true)
+	@Column(nullable = false)
 	private String email;
 
 	@Column(nullable = false, unique = true)
@@ -49,27 +54,18 @@ public class User {
 		
 	}
 
+	private Long generateReducedUUID() {
+		UUID uuid = UUID.randomUUID();
+		return uuid.getMostSignificantBits();
+	}
 
 	 public User(UserDto userDto) {
 		super();
-		this.id = UUID.randomUUID();
-		this.name = userDto.getName();
-		this.email = userDto.getEmail();
+		this.id = generateReducedUUID();
+		this.name = userDto.name();
+		this.email = userDto.email();
 		this.registrationdate = LocalDateTime.now();
-		this.telephone = userDto.getTelephone();
-	}
-
-
-
-	public User(UUID id, String name, String email, LocalDateTime registrationdate, String telephone,
-			Set<Loans> loans) {
-		super();
-		this.id = id;
-		this.name = name;
-		this.email = email;
-		this.registrationdate = registrationdate;
-		this.telephone = telephone;
-		this.loans = loans;
+		this.telephone = userDto.telephone();
 	}
 
 
