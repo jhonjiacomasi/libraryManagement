@@ -49,14 +49,14 @@ cd backend
 Antes de rodar a aplicação é preciso garantir que as seguintes dependências estejam corretamente instaladas:
 ```
 Java 17
-MongoDB 5.7.3
+Mysql 5.7.3
 Maven 3.3.9
 ```
 
 ## Pré-requisito
 
 ## Preparando ambiente
-É necessário a  rinciar o banco de dados relacional para o Srping Jpa realizar a interação com as tabelas
+É necessário a  iniciar o banco de dados relacional para o Srping Jpa realizar a interação com as tabelas
 
 # executar o projeto
 ```
@@ -108,7 +108,7 @@ docker-compose up -d
 Após a execucão a imagem rodara localmente e poderá realizar a execução do seu servidor sql em sua IDE
 
 ## criando o database explorer em sua aplicação:
-Na hora de criar o database é necessario passar as informações definidas em seu container  (User,password), segue exemplo:
+Na hora de criar o database é necessario passar as informações definidas em seu container  (User,password) segue exemplo:
 
 ![Web 1](https://github.com/jhonjiacomasi/libraryManagement/blob/1310/Assets/Config_mysql.png)
 
