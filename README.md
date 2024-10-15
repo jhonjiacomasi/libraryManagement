@@ -125,7 +125,8 @@ Segue abaixo as APIs disponíveis no projeto:
  - /v1/allUsers    (GET)
  - /v1/UserById    (GET)
  - /v1/deleteUser  (DELETE)
-     - Espera atributos para serem critérios de inserção no body da requisição, exemplo:
+   
+ - Espera atributos para serem critérios de inserção no body da requisição, exemplo:
     ```
    {
         "name": "João antonio",
@@ -136,16 +137,91 @@ Segue abaixo as APIs disponíveis no projeto:
     
    - resposta da requisição para inserção da base de dados, exemplo:
 
-  ```
-  {
+   ```
+    {
     "id": 3,
      "name": "João antonio",
      "email": "Joaoantonio@gmail.com",
      "registrationdate": "14-10-2024",
      "telephone": "11963395478"
-  }
-    ```
+     }
+   ```
 
+#### BOOKS
+
+ - /v1/savebook    (POST)
+ - /v1/updateBook  (PUT)
+ - /v1/allBooks    (GET)
+ - /v1/bookById    (GET)
+ - /v1/googleBooks (GET)  Realiza a busca de livros apartir da api do googleBooks
+ - /v1/deletebook  (DELETE)
+ 
+   
+ - Espera atributos para serem critérios de inserção no body da requisição, exemplo:
+    ```
+   {
+    "title": "Teste unitario",
+    "author": "Kevlin teste",
+    "isbn": "te4563",
+    "publishDate": "2024-02-28",
+    "category": "Tecnologia"
+   }
+
+    ```
+    
+   - resposta da requisição para inserção da base de dados, exemplo:
+
+   ```
+    {
+    "id": "73a89929-0ac3-41a9-8c7d-5d9a5b9f884c",
+    "title": "Teste unitario",
+    "author": "Kevlin teste",
+    "isbn": "te4563",
+    "publishDate": "2024-02-28T00:00:00.000+00:00",
+    "category": "Tecnologia"
+    }
+   ```
+
+   #### Loans
+
+ - /v1/saveloans    (POST)
+ - /v1/updateloans/ (PUT)
+ 
+   
+ - Espera atributos para serem critérios de inserção no body da requisição,com dados do Id Usuario e Id do livro exemplo:
+    ```
+   {
+    "user_id":"6",
+    "books_id":"e7f86c40-91ca-4b23-9371-f58797061cb9",
+    "status":true
+   }
+    ```
+    
+   - resposta da requisição para  guardar somente alguns parametros na base de dados inserção da base de dados, exemplo:
+
+   ```
+    {
+    "id": "4590f4f8-c22f-44dc-93f5-d0711547e347",
+    "user": {
+        "id": 1,
+        "name": "Pedro ",
+        "email": "pedrolo@gmail.com",
+        "registrationdate": "2024-10-14 10:21:48.162398",
+        "telephone": "49999123456706"
+    },
+    "books": {
+        "id": "40cd9e7e-0efa-4c53-a7b2-aa0cfc84ab81",
+        "title": "Arquitetura Limpa: o Guia do Artesão Para Estrutura e Design de Software",
+        "author": "Kevlin Henney",
+        "isbn": "B085PP6Y8P",
+        "publishDate": "2024-01-24T00:00:00.000+00:00",
+        "category": "Tecnologia"
+    },
+    "loansDate": "14-10-2024",
+    "returnDate": "30-10-2024",
+    "status": false
+    }
+   ```
 
 ## Front end web
 Pré-requisitos: npm / yarn
