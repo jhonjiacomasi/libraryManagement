@@ -49,17 +49,11 @@ public class User implements Serializable{
 	@OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
 	public Set<Loans> loans = new HashSet<>();
 
-	
 	public User() {}
-
-	private Long generateReducedUUID() {
-		UUID uuid = UUID.randomUUID();
-		return uuid.getMostSignificantBits();
-	}
-
+	
 	 public User(UserDto userDto) {
 		super();
-		this.id = generateReducedUUID();
+		this.id = Util.generateReducedUUID();
 		this.name = userDto.name();
 		this.email = userDto.email();
 		this.registrationdate = Util.formatDate(LocalDateTime.now());

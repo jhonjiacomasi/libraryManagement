@@ -26,9 +26,9 @@ import lombok.RequiredArgsConstructor;
 @RequestMapping("/v1")
 @RequiredArgsConstructor
 public class BookController {
-	
+
 	private final BookService bookService;
-	
+
 	@PostMapping("/savebook")
 	public ResponseEntity<Books> saveBook(@RequestBody BooksDto booksDto) {
 		return ResponseEntity.status(HttpStatus.CREATED).body(bookService.saveBook(booksDto));
@@ -44,7 +44,6 @@ public class BookController {
 		Optional<Books> book = bookService.getBooksById(id);
 		return ResponseEntity.ok(book.get());
 	}
-
 
 	@PutMapping("/updateBook/{uuid}")
 	public ResponseEntity<Books> updateUser(@PathVariable UUID uuid, @RequestBody @Valid BooksDto booksDto) {

@@ -1,7 +1,10 @@
 package com.gestao.biblioteca.recomendacoes.exception;
 
 public class LibraryManagementException extends RuntimeException{
-	 public LibraryManagementException(String message) {
+	
+	private static final long serialVersionUID = 1L;
+
+	public LibraryManagementException(String message) {
 	        super(message);
 	    }
 

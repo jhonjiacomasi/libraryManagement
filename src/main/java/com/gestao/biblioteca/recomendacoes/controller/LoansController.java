@@ -17,24 +17,16 @@ import com.gestao.biblioteca.recomendacoes.service.LoanService;
 public class LoansController implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
-	
 	private final LoanService loanService;
 	
-
 	public LoansController(LoanService loanService) {
 		super();
 		this.loanService = loanService;
 	}
-
-
 
 	@PostMapping("/saveloans")
 	public ResponseEntity<Loans> saveLoans(@RequestBody LoansDto loansDto) {
 
 		return ResponseEntity.status(HttpStatus.CREATED).body(loanService.saveLoans(loansDto));
 	}
-	
-	
-	
-//	
 }

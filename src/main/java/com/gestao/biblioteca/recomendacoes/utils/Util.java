@@ -1,9 +1,7 @@
 package com.gestao.biblioteca.recomendacoes.utils;
 
-import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.Date;
 import java.util.UUID;
 
 import org.springframework.stereotype.Component;
@@ -26,6 +24,10 @@ public class Util {
 		return dateTime.format(FORMATTER);
 	}
 	
+	public static Long generateReducedUUID() {
+		UUID uuid = UUID.randomUUID();
+		return uuid.getMostSignificantBits();
+	}
 	
 	
 }

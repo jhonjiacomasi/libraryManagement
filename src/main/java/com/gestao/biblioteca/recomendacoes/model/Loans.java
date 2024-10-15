@@ -49,6 +49,5 @@ public class Loans {
 		this.status = loansDto.status();
 
 	}
-
 	public Loans() {}
 }
