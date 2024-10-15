@@ -1,7 +1,7 @@
 
 # libraryManagement
 
-![MIT 1](https://github.com/jhonjiacomasi/libraryManagement/blob/main/LICENSE)
+[![NPM](https://github.com/jhonjiacomasi/libraryManagement/blob/main/LICENSE)
 
 # Sobre o projeto
 
