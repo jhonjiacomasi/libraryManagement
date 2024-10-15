@@ -68,8 +68,10 @@ mvn clean package
 Finalizado esse passo, vamos iniciar a aplicação:
 ```
 mvn spring-boot:run
+```
 
 Pronto. A aplicação está disponível em http://localhost:8080
+
 
 ## Preparando ambiente para rodar a imagem do mysql via Docker
 
@@ -90,15 +92,17 @@ services:
       - "3306:3306" 
     volumes:
       - "./mysql-data:/var/lib/mysql"
+  ```
       
 ## Execuntando o Docker
-Baixar as dependência e criar imagem da aplicação
+Baixar as dependência e criar imagem da aplicação exexutando o seguinte comando:
 ```
 docker-compose up -d
 ```
 Após a execucão a imagem rodara localmente e poderá realizar a execução do seu servidor sql em sua IDE
 
-## criando
+## criando o database explorer em sua aplicação:
+Na hora de criar o database explorer é necessario passar as informações definidas em seu container docker para realizar a conexão com o banco de dados sql (User,password), se acaso preferir, pode criar o database sem instanciar na imagem para realizar começar execução de seu servidor e realizar operações, segue exemplo:
 
 
 
