@@ -59,23 +59,27 @@ Maven 3.3.9
 É necessário a  rinciar o banco de dados relacional para o Srping Jpa realizar a interação com as tabelas
 
 # executar o projeto
+```
 ./mvnw spring-boot:run
 ```
+
 É preciso compilar o código e baixar as dependências do projeto:
+
 ```
 mvn clean package
+```
 
 Finalizado esse passo, vamos iniciar a aplicação:
+
 ```
 mvn spring-boot:run
 ```
-
-Pronto. A aplicação está disponível em http://localhost:8080
 
 
 ## Preparando ambiente para rodar a imagem do mysql via Docker
 
 Criar e executar container do  mysql server
+
 ```
 version: '3'
 services:
@@ -96,13 +100,17 @@ services:
       
 ## Execuntando o Docker
 Baixar as dependência e criar imagem da aplicação exexutando o seguinte comando:
+
 ```
 docker-compose up -d
 ```
+
 Após a execucão a imagem rodara localmente e poderá realizar a execução do seu servidor sql em sua IDE
 
 ## criando o database explorer em sua aplicação:
-Na hora de criar o database explorer é necessario passar as informações definidas em seu container docker para realizar a conexão com o banco de dados sql (User,password), se acaso preferir, pode criar o database sem instanciar na imagem para realizar começar execução de seu servidor e realizar operações, segue exemplo:
+Na hora de criar o database é necessario passar as informações definidas em seu container  (User,password), segue exemplo:
+
+![Web 1](https://github.com/jhonjiacomasi/libraryManagement/blob/1310/Assets/Config_mysql.png)
 
 
 
