@@ -1,0 +1,16 @@
+.columnsContainer {
+  display: grid;
+  grid-template-columns: 10% 25% 25% 15% 15% 10%;
+  grid-template-areas: 
+    "id name email telephone date buttons";
+  color: black;
+  font-weight: bold;
+  width: 90%;
+  margin: 1em auto;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}

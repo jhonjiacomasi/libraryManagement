@@ -1,0 +1,10 @@
+.columnsContainer {
+  display: grid;
+  grid-template-columns: 5% 25% 20% 15% 20% 10% 5%;
+  grid-template-areas: 
+    "id title author category isbn publishedDate buttons";
+  color: black;
+  font-weight: bold;
+  width: 90%;
+  margin: 1em auto;
+}

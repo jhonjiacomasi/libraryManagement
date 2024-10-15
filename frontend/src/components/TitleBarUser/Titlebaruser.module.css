@@ -1,0 +1,30 @@
+.titleContainer {
+  height: 5vh;
+  width: 95%;
+  border-bottom: 1px solid gray;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.titleContainer h1 {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: white;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+
+.addButton {
+  background-color: #088242;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 10px;
+  font-size: 1em;
+  font-weight: bold;
+  cursor: pointer;
+  outline: none;
+}

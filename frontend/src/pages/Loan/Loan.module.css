@@ -1,0 +1,34 @@
+.mainContainer {
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  grid-template-rows: auto;
+  grid-template-columns: 15% 85%;
+  grid-template-areas: 
+    "sidebar main";
+  background-color: #FFC87B;
+}
+
+.sidebar {
+  grid-area: sidebar;
+  background-color: #C1FBBE;
+}
+
+.main {
+  grid-area: main;
+  display: grid;
+  grid-template-rows: 10% 5% 5% 80%;
+  grid-template-areas: 
+    "searchbar"
+    "titlebar"
+    "columns"
+    "loans";
+}
+
+.searchbar {
+  grid-area: searchbar;
+}
+
+.titlebar {
+  grid-area: titlebar;
+}

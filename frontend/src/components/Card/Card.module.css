@@ -1,0 +1,42 @@
+.cardContainer {
+  box-sizing: border-box;
+  display: flex;
+  width: 16vw;
+  height: 20vh;
+  padding: 1.5em;
+  border-radius: 1rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: #FFFFFF;
+}
+
+.cardInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  height: 100%;
+  color: #000000;
+}
+
+.cardIcon {
+  font-size: 2.5em;
+  color: #088242;
+}
+
+.cardText {
+  font-size: 1em;
+  padding: 0;
+  margin: 0;
+}
+
+.cardData {
+  display: flex;
+  justify-content: end;
+  align-items: end;
+  font-size: 1.2em;
+  width: 100%;
+  height: 100%;
+  color: #000000;
+}
+

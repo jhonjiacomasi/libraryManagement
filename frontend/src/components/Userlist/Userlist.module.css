@@ -1,0 +1,22 @@
+.userlistContainer {
+  display: grid;
+  grid-template-columns: 10% 25% 25% 15% 15% 10%;
+  grid-template-areas: 
+    "id name email telephone date buttons";
+  color: black;
+  width: 90%;
+  height: 5vh;
+  align-items: center;
+  margin: 1em auto;
+  background-color: #e9e9e9;
+  border-radius: 5px;
+  padding-left: 2%;
+  padding-right: 2%;
+  margin-bottom: 1em;
+}
+
+.buttons {
+  grid-area: buttons;
+  color: #088242;
+  font-size: 1.2em;
+}
