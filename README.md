@@ -1,6 +1,8 @@
 
 # libraryManagement
 
+https://github.com/jhonjiacomasi/libraryManagement/blob/main/LICENSE
+
 # Sobre o projeto
 
 LibraryManagement é uma aplicação de gestão de biblioteca que permita o cadastro de livros, usuários, empréstimos,devoluções e forneça recomendações de livros, e também é possivel realizar a pesquisa através da plataforma Google Books.
