@@ -112,6 +112,39 @@ Na hora de criar o database é necessario passar as informações definidas em s
 
 ![Web 1](https://github.com/jhonjiacomasi/libraryManagement/blob/1310/Assets/Config_mysql.png)
 
+# APIs
+
+O projeto disponibiliza uma API em 3 contextos diferentes: Users, Books,loans  onde utilizam o padrão Rest de comunicação, produzindo e consumindo arquivos no formato JSON.
+
+Segue abaixo as APIs disponíveis no projeto:
+
+#### Users
+
+ - /v1/saveUser    (POST)
+ - /v1/updateUser/ (PUT)
+ - /v1/allUsers    (GET)
+ - /v1/UserById    (GET)
+ - /v1/deleteUser  (DELETE)
+     - Espera atributos para serem critérios de inserção no body da requisição, exemplo:
+    ```
+   {
+        "name": "João antonio",
+        "email": "Joaoantonio@gmail.com",
+        "telephone": "11963395478"
+    }
+    ```
+    
+   - resposta da requisição para inserção da base de dados, exemplo:
+
+  ```
+  {
+    "id": 3,
+     "name": "João antonio",
+     "email": "Joaoantonio@gmail.com",
+     "registrationdate": "14-10-2024",
+     "telephone": "11963395478"
+  }
+    ```
 
 
 ## Front end web
